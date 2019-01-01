@@ -70,6 +70,12 @@
                 android:layout_alignBottom="@+id/czech_name" android:layout_marginStart="155dp"
                 android:layout_marginBottom="21dp"/>
 
+        <TextView
+                android:id="@+id/some"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sakrae:" android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" android:layout_marginTop="252dp" android:layout_marginStart="0dp"/>
     </RelativeLayout>
 
          <android.support.design.widget.NavigationView
