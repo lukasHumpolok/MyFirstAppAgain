@@ -2,8 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single" >
         <item
+            android:id="@+id/history"
             android:title="Historie Čaje" />
         <item
-            android:title="Vlastní příprava" />
+            android:title="Čajový zápisník" />
+        <item
+            android:title="Teaklopedie" />
+        <item
+            android:title="Čajové stopky" />
+        <item
+            android:title="Čajové nádobí" />
     </group>
 </menu>
