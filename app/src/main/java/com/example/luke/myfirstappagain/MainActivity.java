@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity{
 
         navigationView = (NavigationView) findViewById(R.id.navigationView);
 
+        setupDrawerContent(navigationView);
+
         TextView czechName = (TextView)findViewById(R.id.czech_name);
         czechName.setIncludeFontPadding(false);
 
@@ -49,6 +51,57 @@ public class MainActivity extends AppCompatActivity{
                     }
                 });
     }
+
+    private void setupDrawerContent(NavigationView navigationView){
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                }
+        );
+    }
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        Fragment fragment = null;
+        Class fragmentClass = MainActivity.class;
+        switch(menuItem.getItemId()) {
+            case R.id.history:
+                fragmentClass = HistoryFragment.class;
+                break;
+            case R.id.zapisnik:
+                fragmentClass = ZapisnikFragment.class;
+                break;
+            case R.id.teaklopedie:
+                fragmentClass = TeaklopedieFragment.class;
+                break;
+            case R.id.stopky:
+                fragmentClass = StopkyFragment.class;
+                break;
+            case R.id.nadobi:
+                fragmentClass = NadobiFragment.class;
+                break;
+            default:
+                fragmentClass = MainActivity.class;
+        }
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.f1content, fragment).commit();
+
+        menuItem.setChecked(true);
+
+        setTitle(menuItem.getTitle());
+
+        drawerLayout.closeDrawers();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -58,4 +111,5 @@ public class MainActivity extends AppCompatActivity{
         }
         return onOptionsItemSelected(item);
     }
+
 }

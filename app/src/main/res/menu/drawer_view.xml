@@ -5,12 +5,16 @@
             android:id="@+id/history"
             android:title="Historie Čaje" />
         <item
+            android:id="@+id/zapisnik"
             android:title="Čajový zápisník" />
         <item
+            android:id="@+id/teaklopedie"
             android:title="Teaklopedie" />
         <item
+            android:id="@+id/stopky"
             android:title="Čajové stopky" />
         <item
+            android:id="@+id/nadobi"
             android:title="Čajové nádobí" />
     </group>
 </menu>
